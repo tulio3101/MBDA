@@ -1,0 +1,10 @@
+ALTER TABLE Pacientes ADD CONSTRAINT CK_Paciente_Correo CHECK(correo LIKE '%@%');
+ALTER TABLE Entidades ADD CONSTRAINT CK_Entidades_Correo CHECK(correo LIKE '%@%');
+ALTER TABLE Pagos ADD CONSTRAINT CK_Pagos_Monto CHECK(monto > 0 );
+ALTER TABLE Medicos ADD CONSTRAINT CK_Medicos_Correo CHECK (correo LIKE '%@%');
+ALTER TABLE Pagos ADD CONSTRAINT CK_METODOS_DE_PAGOS CHECK (metodoPago IN ('Efectivo','Tarjeta','Transf'));
+ALTER TABLE Pacientes ADD CONSTRAINT CK_PACIENTES_METODOS_DE_PAGOS CHECK (metodosDePago IN ('Efectivo','Tarjeta','Transf'));
+ALTER TABLE Pagos ADD CONSTRAINT CK_ESTADOS_PAGOS CHECK (estadoPago IN ('Pagado','Pendiente'));
+ALTER TABLE Medicos ADD CONSTRAINT CK_Medicos_Estado CHECK (estado IN ('Activo','Inactivo'));
+ALTER TABLE Especialistas ADD CONSTRAINT CK_Especialistas_Especialidad CHECK (especialidad IN ('Medicina Interna','Endocrinologia','Pediatria','Cirugia','Cardiologia','Dermatologia'));
+ALTER TABLE MGeneral ADD CONSTRAINT CK_MGeneral_AreaAtencion CHECK (area_atencion IN ('Primera Infancia', 'Adultos', 'Tercera Edad', 'Adolescentes', 'General'));
